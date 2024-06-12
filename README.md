@@ -1,6 +1,6 @@
 # FullStackApp
 
-# Run The Application
+# Run The Application 
 
    This folder have two apps User-UI and User-backend.
    Insatll the neccessary packages for the applications respectively using the following comment,
