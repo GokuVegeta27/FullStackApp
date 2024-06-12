@@ -36,7 +36,7 @@
   
   The tailwind css library is used for developing responsiveness, and optimized output enhance performance.
 
-## PDFMake (:(^0.2.10)
+## PDFMake (^0.2.10)
   Pdfmake is used for PDF generation, it allows to create and view and download pdf with user data .
   
 
