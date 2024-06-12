@@ -1,0 +1,131 @@
+<h1 class="text-xl">Add user</h1>
+<form class="max-w-sm mx-auto space-y-6" [formGroup]="userForm">
+  <div class="mb-5">
+    <label
+      for="name"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Enter name</label
+    >
+    <input
+      type="text"
+      id="email"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+      placeholder="vishva"
+      formControlName="userName"
+      (keypress)="validateAlphabet($event)"
+      (paste)="onPaste($event)"
+      required
+    />
+    @if (submitted && f['userName'].errors) {
+      <div class="text-red-700 ">
+        @if (f['userName'].errors['required']) {
+        <div>Name is required</div>
+        }
+      </div>
+      }
+  </div>
+  <div class="mb-5">
+    <label
+      for="email"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Enter email</label
+    >
+    <input
+      type="email"
+      id="email"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+      placeholder="vihava280@gmail.com"
+      formControlName="userEmail"
+      required
+    />
+    @if (submitted && f['userEmail'].errors) {
+      <div class="text-red-700 ">
+        @if (f['userEmail'].errors['required']) {
+        <div>Email is required</div>
+        }
+        @if (f['userEmail'].errors['email']) {
+          <div>Enter a valid email</div>
+          }
+      </div>
+      }
+  </div>
+  <div class="mb-5">
+    <label
+      for="PhoneNumber"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Enter phone number</label
+    >
+    <input
+      type="text"
+      id="number"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+      placeholder="1234567890"
+      (keypress)="validateNumber($event)"
+      minlength="10"
+      maxlength="10"
+      formControlName="userPhoneNumber"
+      required
+    />
+    @if (submitted && f['userPhoneNumber'].errors) {
+      <div class="text-red-700 ">
+        @if (f['userPhoneNumber'].errors['required']) {
+        <div>PhoneNumber is required</div>
+        }
+        @if (f['userPhoneNumber'].errors['minlength']) {
+          <div>PhoneNumber must contain 10 numbers</div>
+          }
+      </div>
+      }
+  </div>
+  <div class="mb-5">
+    <label
+      for="address"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Enter address</label
+    >
+    <input
+      type="text"
+      id="email"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+      placeholder="chennai"
+      formControlName="userAddress"
+      required
+    />
+    @if (submitted && f['userAddress'].errors) {
+      <div class="text-red-700 ">
+        @if (f['userAddress'].errors['required']) {
+        <div>Address is required</div>
+        }
+      </div>
+      }
+  </div>
+  @if(errorMessage){
+  <div class="text-red-700 ">
+    {{ this.errorMessage }}
+  </div>
+  } @if(!updateStatus){
+  <button
+    (click)="createUser()"
+    type="submit"
+    class="text-white bg-blue-700 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+  >
+    Add
+  </button>
+
+  }@else{
+  <button
+    (click)="cancelUpdate()"
+    type="submit"
+    class="text-black bg-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+  >
+    cancel
+  </button>
+  <button
+    (click)="updateUserInfo()"
+    type="submit"
+    class="text-white bg-blue-700 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+  >
+    update
+  </button>
+  }
+</form>
