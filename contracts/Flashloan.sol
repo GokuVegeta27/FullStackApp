@@ -34,3 +34,4 @@ contract FlashLoanPolygon is IFlashLoanSimpleReceiver {
         usdc.approve(address(lendingPool), totalDebt);
         return true;
     }
+}
